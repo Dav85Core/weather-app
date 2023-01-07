@@ -1,2 +1,2 @@
-# wheather-app
-Wheather app project
+# weather-app
+Weather app project
