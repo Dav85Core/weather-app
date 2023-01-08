@@ -44,5 +44,6 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"
-  }
+  },
+  "homepage": "https://dav85core.github.io/wheather-app"
 }
