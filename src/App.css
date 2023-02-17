@@ -1,141 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-body{
-  font-family: 'Montserrat', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+body {
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
 }
-.main{
+.main {
   height: 100vh;
   min-height: 729px;
-  background-color: #343D4B;
+  background-color: #343d4b;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.weather{
+.weather {
   width: 493px;
   height: 666px;
-  background: url('./Assets/img/Rectangle\ 2.png'),linear-gradient(152.19deg, rgba(136, 235, 239, 0.9) -0.04%, rgba(83, 91, 230, 0.9) 100%);
+  background: url("./Assets/img/Rectangle\ 2.png"),
+    linear-gradient(
+      152.19deg,
+      rgba(136, 235, 239, 0.9) -0.04%,
+      rgba(83, 91, 230, 0.9) 100%
+    );
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
-.info{
-  width: 472px;
-  height: 623px;
+.info {
+  max-width: 472px;
+  width: 100%;
+  /* height: 623px; */
   background-color: #222831;
   border-radius: 0 25px 25px 0;
   display: flex;
   flex-direction: column;
-}
-.precipitationsBlock{
-  display: flex;
-  justify-content: space-between;
-  padding-inline: 50px;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: 700;
-
-}
-.humidityBlock{
-  display: flex;
-  justify-content: space-between;
-  padding-inline: 50px;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: 700;
-}
-.windBlock{
-  display: flex;
-  justify-content: space-between;
-  padding-inline: 50px;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: 700;
-}
-.statBlock{
-  margin-bottom: 16px;
-}
-.stat{
-  margin: 0;
-}
-.infoMargin{
-  margin-top: 50px;
-}
-.forecastGroup{
-  max-width: 416px;
-  width:100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 80px;
-  margin-inline: 33px;
-}
-.forecastBlock{
-  position: relative;
-  width: 100%;
-  height: 185px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  border-radius: 10px;
-  color: #ffffff;
-  background-color: #272E37;
-}
-.forecastBlock::before{
-  content: "";
-  position:absolute;
-  height: 132px;
-  width: 1px;
-  background-color: #222831;
-  top: 10%;
-  left: 0;
-}
-.forecastBlockOne{
-  width: 100%;
-  height: 192px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  background-color: #ffffff;
-  border-radius: 10px;
-  
-  
-}
-.foreIcon{
-  margin: 23px 10px 0 12px;
-  width: 54px;
-  height: 54px;
-}
-.foreIconOne{
-  margin: 22px 11px 0 11px;
-  width: 55px;
-  height: 55px;
-}
-.foreDay{
-  font-size: 20px;
-  margin: 15px 0 5px 0;
+  padding-block: 50px;
 }
 
-.foreDegree{
-  font-size: 20px;
-  font-weight: 700;
-}
-.locationButton{
-  width: 100%;
+.locationButton {
+  /* width: 100%; */
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-top: 62px;
+  /* margin-top: 62px; */
 }
-.btn{
+.btn {
   width: 88%;
   height: 55px;
-  background: linear-gradient(90.8deg, rgba(144, 217, 224, 0.9) 0.2%, rgba(84, 96, 230, 0.9) 100%);
+  background: linear-gradient(
+    90.8deg,
+    rgba(144, 217, 224, 0.9) 0.2%,
+    rgba(84, 96, 230, 0.9) 100%
+  );
   border-radius: 10px;
   font-size: 20px;
   font-weight: 600;

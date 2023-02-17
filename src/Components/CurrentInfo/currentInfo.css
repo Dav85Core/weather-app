@@ -1,0 +1,39 @@
+.infoMargin {
+  display: flex;
+  padding-inline: 50px;
+  flex-direction: column;
+  align-content: stretch;
+  flex-wrap: wrap;
+}
+
+.precipitationsBlock {
+  display: flex;
+  justify-content: space-between;
+
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+}
+.humidityBlock {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+}
+.windBlock {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+}
+.statBlock {
+  margin-bottom: 16px;
+}
+.stat {
+  margin: 0;
+}

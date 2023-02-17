@@ -1,0 +1,19 @@
+.forecastBlock {
+  position: relative;
+  width: 25%;
+  display: flex;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #272e37;
+}
+.forecast-element {
+  /* display:flex;
+    width: 25%; */
+}
+.forecast-data {
+  /* width: 25%; */
+}
+.forecast-container {
+  display: flex;
+  justify-content: center;
+}
