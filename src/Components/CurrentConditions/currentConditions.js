@@ -1,30 +1,23 @@
 import "./conditions.css";
-import { useState, useEffect } from "react";
-import { API_WEATHER } from "../../API";
 
-const CurrentConditions = () => {
-  const [temperature, setTemperature] = useState(0);
-  const [weather, setWeather] = useState({});
-
-  useEffect(() => {
-    async function getWeather() {
-      const response = await fetch(`${API_WEATHER}`);
-      const data = await response.json();
-
-      const tempInCelsius = data.main.temp - 273.15;
-      setTemperature(tempInCelsius);
-      setWeather(data);
-    }
-
-    getWeather();
-  }, []);
-
+const CurrentConditions = (props) => {
+    const temp = props.temp;
+    const conditions = props.conditions;
+    const icon = props.icon;
   return (
     <div className="conditionsBlock">
-      <p className="degrees">{temperature.toFixed(2)}</p>
+      <div className="condition-icon">
+      <img
+                src={`https://openweathermap.org/img/w/${icon}.png`}
+               
+              />
+      </div>
+      <p className="degrees">{temp} C</p>
+
       <p className="sky">
-        {weather.weather ? weather.weather[0].description : "Loading"}
+        {conditions}
       </p>
+      <span>{}</span>
     </div>
   );
 };

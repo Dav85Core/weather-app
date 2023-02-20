@@ -1,26 +1,22 @@
-import {useState, useEffect} from "react";
-import "./current.css"
-import {location} from "../../API";
+import Location from "../../Assets/img/Location.svg";
+import "./current.css";
 
+const CurrentData = (props) => {
+  const city = props.city;
+  const country = props.country;
+  const date = props.date;
+  const day = props.day;
 
-const CurrentData = () => { 
-  const [currentDay, setCurrentDay] = useState("");
-  const [currentDate, setCurrentDate] = useState("");
-  useEffect(() => {
-      const date = new Date();
-      const day = date.toLocaleString("default", { weekday: "long" });
-      const currentDate = date.toLocaleString();
-      setCurrentDay(day);
-      setCurrentDate(currentDate);
-  }, [location]);
+  return (
+    <div className="todayBlock">
+      <p className="today">{day}</p>
+      <p className="currentDate">{date}</p>
+      <p className="location">
+        <img src={Location} alt="" />
+        {city}, {country}
+      </p>
+    </div>
+  );
+};
 
-    return (
-        <div className="todayBlock">
-        <p className="today">{currentDay}</p>
-        <p className="currentDate">{currentDate}</p>
-        <p className="location">{location}</p>
-      </div>
-      );
-}
- 
 export default CurrentData;

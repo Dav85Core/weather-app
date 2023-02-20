@@ -1,9 +1,10 @@
 .infoMargin {
   display: flex;
-  padding-inline: 50px;
+  padding-inline: 2.2em;
   flex-direction: column;
   align-content: stretch;
   flex-wrap: wrap;
+  padding-top: 1em;
 }
 
 .precipitationsBlock {

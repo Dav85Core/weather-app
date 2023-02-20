@@ -1,30 +1,11 @@
 import "./currentInfo.css";
 import { useState, useEffect } from "react";
-import { API_WEATHER } from "../../API";
+import { API_KEY } from "../../API";
 
-const CurrentInfo = () => {
-  const [city, setCity] = useState("Krakow");
-  const [rain, setRain] = useState(0);
-  const [humid, setHumid] = useState(0);
-  const [wind, setWind] = useState(0);
-  useEffect(() => {
-    async function getCurrentInfo() {
-      const response = await fetch(`${API_WEATHER}`);
-      const data = await response.json();
-      const humidity = data.main.humidity;
-      const currentWind = data.wind.speed;
-      console.log(humidity);
-      console.log(currentWind);
-
-      if (data.rain && data.rain === undefined) {
-        setRain(0);
-      }
-
-      setHumid(humidity);
-      setWind(currentWind);
-    }
-    getCurrentInfo();
-  }, []);
+const CurrentInfo = (props) => {
+  const precipitations = props.precipitations;
+  const humidity = props.humidity;
+  const wind = props.wind;
 
   return (
     <div className="infoMargin">
@@ -33,7 +14,7 @@ const CurrentInfo = () => {
           <p className="stat">precipitations</p>
         </div>
         <div className="statBlock">
-          <p className="stat">{rain}</p>
+          <p className="stat">{precipitations}%</p>
         </div>
       </div>
       <div className="humidityBlock">
@@ -41,7 +22,7 @@ const CurrentInfo = () => {
           <p className="stat">humidity</p>
         </div>
         <div className="statBlock">
-          <p className="stat">{humid}%</p>
+          <p className="stat">{humidity}%</p>
         </div>
       </div>
       <div className="windBlock">

@@ -1,21 +1,21 @@
-.today{
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 37px;
+.today {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 37px;
 }
-.todayBlock{
-    margin-top: 48px;
+.todayBlock {
+  margin-top: 48px;
 }
-.todayBlock p{
-    margin: 0 0 16px 32px;
+.todayBlock p {
+  margin: 0 0 16px 32px;
 }
-.currentDate{
-    font-weight: 500;
-    font-size: 22px;
-    color: #ffffff;
+.currentDate {
+  font-weight: 500;
+  font-size: 22px;
+  color: #ffffff;
 }
-.location{
-    font-weight: 600;
-    font-size: 22px;
-    color: #ffffff;
+.location {
+  font-weight: 600;
+  font-size: 22px;
+  color: #ffffff;
 }
