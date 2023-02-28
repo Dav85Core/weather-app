@@ -38,13 +38,13 @@ body {
 }
 
 .location-Button {
-  width: 80%;
+  width: 85%;
   display: flex;
   flex-direction: column;
   text-align: center;
   border-radius: 5px;
   gap: 10px;
-  padding-left: 2.8em;
+  padding-left: 2em;
 }
 .btn {
   cursor: pointer;
@@ -59,4 +59,48 @@ body {
   padding: 0.85em;
   border-radius: 8px;
   border: none;
+}
+
+@media (max-width: 600px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+  .weather {
+    flex-direction: row;
+    max-width: 472px;
+    width: 100%;
+    background: url("./Assets/img/Rectangle\ 2.png"),
+      linear-gradient(
+        152.19deg,
+        rgba(136, 235, 239, 0.9) -0.04%,
+        rgba(83, 91, 230, 0.9) 100%
+      );
+    padding-block: 1em;
+    justify-content: space-around;
+
+    align-items: center;
+    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .info {
+    border-bottom-right-radius: 5%;
+    border-bottom-left-radius: 5%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    padding-block: 0;
+  }
+  .location-Button {
+    padding-bottom: 1.5em;
+  }
+  .btn {
+    border-radius: 0;
+    border: none;
+  }
+  .location-input {
+    border-radius: 0;
+    border: none;
+  }
 }

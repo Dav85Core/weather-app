@@ -8,31 +8,40 @@ import { useState, useEffect } from "react";
 import { API_KEY } from "./API";
 
 function App() {
-  const [city, setCity] = useState("");
-  const [currentDate, setCurrentDate] = useState();
-  const [location, setLocation] = useState("");
-  const [inputCity, setInputCity] = useState("");
-  const [dayOfWeek, setDayOfWeek] = useState("");
-  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("- -");
+  const [currentDate, setCurrentDate] = useState("- -");
+  const [location, setLocation] = useState("- -");
+  const [inputCity, setInputCity] = useState("- -");
+  const [dayOfWeek, setDayOfWeek] = useState("- -");
+  const options = {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  };
+  const [country, setCountry] = useState("- -");
   const [temp, setTemp] = useState("");
-  const [conditions, setConditions] = useState("");
-  const [precipitations, setPrecipitations] = useState("");
-  const [humidity, setHumidity] = useState("");
-  const [wind, setWind] = useState("");
-  const [icon, setIcon] = useState();
+  const [conditions, setConditions] = useState("- -");
+  const [precipitations, setPrecipitations] = useState("- -");
+  const [humidity, setHumidity] = useState("- -");
+  const [wind, setWind] = useState("- -");
+  const [icon, setIcon] = useState("- -");
   const API_WEATHER = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
   const API_FORECAST = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`;
-  const [forecastData, setForecastData] = useState([]);
+  const [forecastData, setForecastData] = useState(["- -"]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setInputCity(city);
-    }, 1000);
-  }, [city]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setCity(city);
+  //   }, 1000);
+  // }, [city]);
 
   const handleInput = (event) => {
-    setCity(event.target.value);
+  
+        setCity(event.target.value);
+     
+
   };
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,7 +49,7 @@ function App() {
     fetch(API_WEATHER)
       .then((Response) => Response.json())
       .then((data) => {
-        setCurrentDate(new Date(data.dt * 1000).toLocaleDateString("default"));
+        setCurrentDate(new Date(data.dt * 1000).toLocaleDateString("default", options));
         setDayOfWeek(
           new Date(data.dt * 1000).toLocaleDateString("default", {
             weekday: "long",
@@ -48,7 +57,7 @@ function App() {
         );
         setCountry(data.sys.country);
         setLocation(city);
-        setTemp((data.main.temp - 274.15).toFixed(2));
+        setTemp((data.main.temp - 274.15).toFixed());
         setConditions(data.weather[0].main);
         const rain = data?.rain?.["1h"] || data?.snow?.["1h"] || 0;
         setPrecipitations(rain);

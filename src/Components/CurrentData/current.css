@@ -19,3 +19,30 @@
   font-size: 22px;
   color: #ffffff;
 }
+@media (max-width: 600px) {
+  .today {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 28px;
+  }
+  .todayBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8em;
+    margin-top: 0;
+  }
+  .todayBlock p {
+    margin: 0 ;
+  }
+  .currentDate {
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffff;
+  }
+  .location {
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+  }
+}

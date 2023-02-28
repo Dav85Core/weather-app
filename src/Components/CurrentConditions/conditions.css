@@ -16,3 +16,25 @@
   color: #ffffff;
   text-transform: capitalize;
 }
+@media (max-width: 600px) {
+  .conditionsBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0;
+  }
+  .conditionsBlock p {
+    margin: 0;
+  }
+  .degrees {
+    font-weight: 700;
+    font-size: 30px;
+    color: #ffffff;
+  }
+  .sky {
+    font-weight: 700;
+    font-size: 30px;
+    color: #ffffff;
+    text-transform: capitalize;
+  }
+}
