@@ -12,7 +12,7 @@ const CurrentConditions = (props) => {
                
               />
       </div>
-      <p className="degrees">{temp} C</p>
+      <p className="degrees">{temp} &deg;</p>
 
       <p className="sky">
         {conditions}
