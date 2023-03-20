@@ -39,7 +39,7 @@
   margin: 0;
 }
 @media (max-width: 600px) {
-  .stat{
-      font-size: 24px;
+  .stat {
+    font-size: 24px;
   }
 }

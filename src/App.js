@@ -4,7 +4,7 @@ import CurrentData from "./Components/CurrentData/currentData";
 import CurrentConditions from "./Components/CurrentConditions/currentConditions";
 import CurrentInfo from "./Components/CurrentInfo/currentInfo";
 import Forecast from "./Components/Forecast/forecast";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { API_KEY } from "./API";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   const options = {
     day: "numeric",
     month: "short",
-    year: "numeric"
+    year: "numeric",
   };
   const [country, setCountry] = useState("- -");
   const [temp, setTemp] = useState("");
@@ -29,19 +29,10 @@ function App() {
   const API_FORECAST = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`;
   const [forecastData, setForecastData] = useState(["- -"]);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setCity(city);
-  //   }, 1000);
-  // }, [city]);
-
   const handleInput = (event) => {
-  
-        setCity(event.target.value);
-     
-
+    event.preventDefault();
+    setCity(event.target.value);
   };
-  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -49,7 +40,9 @@ function App() {
     fetch(API_WEATHER)
       .then((Response) => Response.json())
       .then((data) => {
-        setCurrentDate(new Date(data.dt * 1000).toLocaleDateString("default", options));
+        setCurrentDate(
+          new Date(data.dt * 1000).toLocaleDateString("default", options)
+        );
         setDayOfWeek(
           new Date(data.dt * 1000).toLocaleDateString("default", {
             weekday: "long",
@@ -61,10 +54,10 @@ function App() {
         setConditions(data.weather[0].main);
         const rain = data?.rain?.["1h"] || data?.snow?.["1h"] || 0;
         setPrecipitations(rain);
-        setIcon(data.weather[0].icon)
+        setIcon(data.weather[0].icon);
         setHumidity(data.main.humidity);
         setWind(data.wind.speed);
-        console.log(data)
+        console.log(data);
       });
 
     fetch(API_FORECAST)
@@ -80,14 +73,13 @@ function App() {
             description: item.weather[0].description,
           }))
           .filter((item, index) => index % 8 === 0);
-            
+
         setForecastData(forecast);
       })
-      
+
       .catch((error) => {
         console.error("Error fetching weather forecast", error);
       });
-    
   };
 
   return (
@@ -99,7 +91,7 @@ function App() {
           day={dayOfWeek}
           country={country}
         />
-        <CurrentConditions temp={temp} conditions={conditions} icon={icon}/>
+        <CurrentConditions temp={temp} conditions={conditions} icon={icon} />
       </div>
       <div className="info">
         <CurrentInfo

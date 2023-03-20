@@ -17,7 +17,7 @@
   text-transform: capitalize;
 }
 @media (max-width: 600px) {
-  .conditionsBlock{
+  .conditionsBlock {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
