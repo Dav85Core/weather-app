@@ -1,6 +1,6 @@
 import "./forecast.css";
 
-const Forecast = ({ forecastData }) => {
+const ForecastData = ({ forecastData }) => {
   const nextFourDays = forecastData.slice(1, 5);
 
   return (
@@ -37,4 +37,4 @@ const Forecast = ({ forecastData }) => {
     </div>
   );
 };
-export default Forecast;
+export default ForecastData;
