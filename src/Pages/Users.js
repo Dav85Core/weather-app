@@ -1,17 +1,21 @@
 import React from "react";
 import { mockUsers } from "./MockData";
 import "../App.css";
-import { useState, useEffects } from "react";
+import { useState, useEffect } from "react";
 
 function Users() {
-  const [usersData, setUsersData] = useState();
+  const [usersData, setUsersData] = useState([]);
 
-  async function getUser() {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/users`)
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  const getUser = async () => {
+    await fetch(`https://jsonplaceholder.typicode.com/users`)
       .then((response) => response.json())
       .then((response) => setUsersData(response));
-  }
-  console.log(usersData);
+  };
+
   return (
     <div className="users-container">
       <div className="users-header">
@@ -22,7 +26,7 @@ function Users() {
         </form>
       </div>
       <div className="users">
-        {usersData?.map((user) => {
+        {usersData.map((user) => {
           return (
             <div className="user" key={user.id}>
               <div className="usernames">
