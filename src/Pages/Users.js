@@ -5,6 +5,9 @@ import { useState, useEffect } from "react";
 
 function Users() {
   const [usersData, setUsersData] = useState([]);
+  const [searchParam] = useState(["name", "username"]);
+  const [q, setQ] = useState("");
+  const [filterParam, setFilterParam] = useState(["All"]);
 
   useEffect(() => {
     getUser();
@@ -16,17 +19,57 @@ function Users() {
       .then((response) => setUsersData(response));
   };
 
+  const searchUser = (usersData) => {
+    return usersData.filter((user) => {
+      if (user.name == filterParam) {
+        return searchParam.some((newUser) => {
+          return (
+            user[newUser].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
+          );
+        });
+      } else if (user.username == filterParam) {
+        return searchParam.some((newUser) => {
+          return (
+            user[newUser].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
+          );
+        });
+      } else if (filterParam == "All") {
+        return searchParam.some((newUser) => {
+          return (
+            user[newUser].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
+          );
+        });
+      }
+    });
+  };
+
   return (
     <div className="users-container">
       <div className="users-header">
         <h1>List of Users</h1>
         <form action="">
-          <input className="user-input" id="user-input" type="text" />
+          <input
+            className="user-input"
+            id="user-input"
+            type="text"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+          />
           <label htmlFor="user-input">Search users</label>
+          {/* <div className="select">
+            <select
+              onChange={(e) => {
+                setFilterParam(e.target.value);
+              }}
+            >
+              <option value={usersData.name}>Filter by Name</option>
+              <option value={usersData.username}>Filter by Username</option>
+            </select>
+          </div> */}
         </form>
       </div>
       <div className="users">
-        {usersData.map((user) => {
+        {searchUser(usersData).map((user) => {
           return (
             <div className="user" key={user.id}>
               <div className="usernames">
