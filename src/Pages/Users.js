@@ -39,6 +39,12 @@ function Users() {
             user[newUser].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
           );
         });
+      } else if (filterParam == "username") {
+        return searchParam.some((newUser) => {
+          return (
+            user[newUser].toString().toLowerCase().indexOf(q.toLowerCase()) > -1
+          );
+        });
       }
     });
   };
@@ -56,16 +62,16 @@ function Users() {
             onChange={(e) => setQ(e.target.value)}
           />
           <label htmlFor="user-input">Search users</label>
-          {/* <div className="select">
+          <div className="select">
             <select
               onChange={(e) => {
                 setFilterParam(e.target.value);
               }}
             >
-              <option value={usersData.name}>Filter by Name</option>
-              <option value={usersData.username}>Filter by Username</option>
+              <option value="name">Filter by Name</option>
+              <option value="username">Filter by Username</option>
             </select>
-          </div> */}
+          </div>
         </form>
       </div>
       <div className="users">
